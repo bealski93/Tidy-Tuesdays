@@ -10,9 +10,13 @@ most_comment <- cran_code %>%
 
 most_comment_sorted <- arrange(most_comment, desc(total_comment))
 
-plot <- ggplot(most_comment_sorted, aes(x = language, y = total_comment)) +
+plot <- ggplot(most_comment_sorted, aes(x = language, y = total_comment, fill = factor(language))) +
   geom_col() +
   ylab("Total Number of Comments") +
-  xlab("Programming Language") 
-
+  xlab("Programming Language") +
+  coord_flip() +
+  theme_light() +
+  theme(legend.position = "none") 
+  
+plot
   
